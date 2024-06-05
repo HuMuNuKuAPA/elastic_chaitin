@@ -1,0 +1,88 @@
+# PUT _component_template/chaitin_oa_mapping
+{
+  "template": {
+    "mappings": {
+      "properties": {
+        "protocol": { "type": "keyword" },
+        "timestamp": { "type": "date" },
+        "country": { "type": "keyword" },
+        "req_risk_level": { "type": "keyword" },
+        "req_policy_id_list": { "type": "keyword" },
+        "req_action": { "type": "keyword" },
+        "query_string": { "type": "keyword" },
+        "session": { "type": "keyword" },
+        "user_agent": { "type": "text" },
+        "rsp_start_time": { "type": "keyword" },
+        "dest_port": { "type": "integer" },
+        "req_proxy_name": { "type": "keyword" },
+        "socket_ip": { "type": "ip" },
+        "req_start_time": { "type": "date" },
+        "req_end_time": { "type": "date" },
+        "province": { "type": "keyword" },
+        "req_payload": { "type": "keyword" },
+        "req_decode_path": { "type": "keyword" },
+        "timestamp_human": { "type": "date",
+                            "format": "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis"
+        },
+        "reason": {
+          "type": "text",
+          "search_analyzer": "ik_smart",
+          "analyzer": "ik_max_word",
+          "fields": {
+            "keyword": {
+              "type": "keyword"
+            }
+          }
+        },
+        "priority": { "type": "keyword" },
+        "site_uuid": { "type": "keyword" },
+        "req_policy_group_id": { "type": "keyword" },
+        "urlpath": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword"
+            }
+          }
+        },
+        "type": { "type": "keyword" },
+        "req_detector_name": { "type": "keyword" },
+        "referer": { "type": "keyword" },
+        "rsp_end_time": { "type": "keyword" },
+        "host": { "type": "keyword" },
+        "event_id": { "type": "keyword" },
+        "attack_type": { "type": "keyword" },
+        "src_ip": { "type": "ip" },
+        "action": { "type": "keyword" },
+        "resp_reason_phrase": { "type": "keyword" },
+        "dest_ip": { "type": "ip" },
+        "node": { "type": "keyword" },
+        "req_block_reason": { "type": "keyword" },
+        "risk_level": { "type": "keyword" },
+        "req_rule_module": { "type": "keyword" },
+        "location": { "type": "keyword" },
+        "cookie": { "type": "keyword" },
+        "req_location": { "type": "keyword" },
+        "proxy_name": { "type": "keyword" },
+        "site_url": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword"
+            }
+          }
+        },
+        "src_port": { "type": "integer" },
+        "req_rule_id": { "type": "keyword" },
+        "req_attack_type": { "type": "keyword" },
+        "method": { "type": "keyword" },
+        "detector_ip_source": { "type": "keyword" },
+        "payload": { "type": "text" },
+        "rule_id": { "type": "keyword" },
+        "decode_path": { "type": "keyword" },
+        "body": { "type": "text" },
+        "scheme": { "type": "keyword" }
+      }
+    }
+  }
+}

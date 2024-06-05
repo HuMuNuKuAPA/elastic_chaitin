@@ -1,0 +1,133 @@
+# PUT _index_template/nsfocus_ips_template_1
+{
+  "index_patterns": [
+    "nsfocus_ips_*"
+  ],
+  "template": {
+    "settings": {
+      "analysis": {
+        "analyzer": {
+          "default": {
+            "type": "ik_max_word"
+          },
+          "default_search": {
+            "type": "ik_smart"
+          }
+        }
+      }
+    },
+    "mappings": {
+      "properties": {
+        "@timestamp": {
+          "type": "date"
+        },
+        "@version": {
+          "type": "short"
+        },
+        "action": {
+          "type": "short"
+        },
+        "attack_type": {
+          "type": "short"
+        },
+        "cnnvd_id": {
+          "type": "keyword"
+        },
+        "count": {
+          "type": "int"
+        },
+        "cve_id": {
+          "type": "keyword"
+        },
+        "cwe_id": {
+          "type": "keyword"
+        },
+        "destination": {
+          "properties": {
+            "ip": {
+              "type": "ip"
+            },
+            "port": {
+              "type": "long"
+            }
+          }
+        },
+        "device_type": {
+          "type": "keyword"
+        },
+        "event": {
+          "properties": {
+            "category": {
+              "type": "text",
+              "analyzer": "ik_max_word",
+              "search_analyzer": "ik_smart",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                }
+              }
+            }
+          }
+        },
+        "protocol": {
+          "type": "keyword"
+        },
+        "ruleid": {
+          "type": "long"
+        },
+        "scity": {
+          "type": "keyword"
+        },
+        "scountry": {
+          "type": "keyword"
+        },
+        "service": {
+          "type": "keyword"
+        },
+        "source": {
+          "properties": {
+            "ip": {
+              "type": "ip"
+            },
+            "port": {
+              "type": "long"
+            }
+          }
+        },
+        "tags": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "threat_level": {
+          "type": "long"
+        },
+        "threat_type": {
+          "type": "text",
+          "analyzer": "ik_max_word",
+          "search_analyzer": "ik_smart",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "type": {
+          "type": "keyword"
+        },
+        "unix_time": {
+          "type": "keyword"
+        }
+      }
+    },
+    "aliases": {
+      "mydata": {}
+    }
+  }
+}
